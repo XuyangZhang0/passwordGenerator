@@ -1,34 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Password Generator</h1>
-      </header>
-      <div class="card">
-        <div class="card-header">
-          <h2>Generate a Password</h2>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Password Generator</h1>
+    </header>
+    <div class="card">
+      <div class="card-header">
+        <h2>Generate a Password</h2>
+      </div>
+      <div class="card-body">
+        <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
+      </div>
+      <div class="card-footer">
+        <button id="generate" class="btn">Generate Password</button>
+
+
+        <!-- Modal Test Start https://www.w3schools.com/howto/howto_css_modals.asp -->
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn" class="btn">Set Password Criteria</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <!-- Embedded Form Pop Up https://www.w3schools.com/howto/howto_js_popup_form.asp -->
+            <div class="form-popup" id="myForm">
+              <form action="/action_page.php" class="form-container">
+                <h1>Password Criteria</h1>
+            
+                <label for="length"><b>Password Length</b></label>
+                <input type="number" id="length" name="length" required>
+
+                <input type="checkbox" id="useLowercase" name="useLowercase" value="useLowercase">
+                <label for="useLowercase"> Use Lowercase Letters</label><br>
+
+                <input type="checkbox" id="useUppercase" name="useUppercase" value="useUppercase">
+                <label for="useUppercase"> Use Uppercase Letters</label><br>
+
+                <input type="checkbox" id="useNumeric" name="useNumeric" value="useNumeric">
+                <label for="useNumeric"> Use Numeric</label><br>
+                
+                <input type="checkbox" id="useSpecial" name="useSpecial" value="useSpecial">
+                <label for="useSpecial"> Use Special Characters</label><br>
+            
+                <button type="submit" class="btn" id="confirm">Confirm</button>
+                <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
+              </form>
+            </div>
+          </div>
+
         </div>
-        <div class="card-body">
-          <textarea
-            readonly
-            id="password"
-            placeholder="Your Secure Password"
-            aria-label="Generated Password"
-          ></textarea>
-        </div>
-        <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
-        </div>
+        <!-- Modal Test End -->
       </div>
     </div>
-    <script src="script.js"></script>
-  </body>
+  </div>
+  <script src="script.js"></script>
+</body>
+
 </html>
