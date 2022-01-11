@@ -27,7 +27,8 @@
 
         <!-- Modal Test Start https://www.w3schools.com/howto/howto_css_modals.asp -->
         <!-- Trigger/Open The Modal -->
-        <button id="myBtn" class="btn">Set Password Criteria</button>
+        <!-- re-designed the flow, no password criteria button needed -->
+        <!-- <button id="myBtn" class="btn">Set Password Criteria</button> -->
 
         <!-- The Modal -->
         <div id="myModal" class="modal">
@@ -36,12 +37,11 @@
           <div class="modal-content">
             <span class="close">&times;</span>
             <!-- Embedded Form Pop Up https://www.w3schools.com/howto/howto_js_popup_form.asp -->
-            <div class="form-popup" id="myForm">
-              <form action="/action_page.php" class="form-container">
+              <form action="#" class="form-container">
                 <h1>Password Criteria</h1>
             
-                <label for="length"><b>Password Length</b></label>
-                <input type="number" id="length" name="length" required>
+                <label for="length">Password Length (8-128)</label>
+                <input type="number" id="length" name="length" required><br>
 
                 <input type="checkbox" id="useLowercase" name="useLowercase" value="useLowercase">
                 <label for="useLowercase"> Use Lowercase Letters</label><br>
@@ -56,13 +56,10 @@
                 <label for="useSpecial"> Use Special Characters</label><br>
             
                 <button type="submit" class="btn" id="confirm">Confirm</button>
-                <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
               </form>
-            </div>
           </div>
-
         </div>
-        <!-- Modal Test End -->
+        <!-- Modal End -->
       </div>
     </div>
   </div>

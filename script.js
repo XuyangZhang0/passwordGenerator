@@ -13,10 +13,7 @@ var useSpecial;
 function writePassword() {
   // console.log(document.getElementsByName('length').value);
   var password = generatePassword();
-  
-  
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 
 }
@@ -30,10 +27,11 @@ useUpperCase= document.getElementById('useUppercase').checked;
 useSpecial= document.getElementById('useSpecial').checked;
 useNumeric= document.getElementById('useNumeric').checked;
 modal.style.display = "none";
+writePassword();
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// Add event listener to generate button, updated the user flow and no need for this listener
+// generateBtn.addEventListener("click", writePassword);
 
 // Add event listener to confirm button
 confirmBtn.addEventListener("click", setCriteria);
@@ -42,17 +40,7 @@ confirmBtn.addEventListener("click", setCriteria);
 document.getElementById("confirm").addEventListener("click", function(event){
   event.preventDefault()
 });
-// event handler
 
-/**
- * 
- * @param {number} length  - The expected length of the password
- * @param {boolean} useLowerCase - whether lowercase letters will be included
- * @param {boolean} useUpperCase - whether uppercase letters will be included
- * @param {boolean} useNumeric - whether numeric values are included
- * @param {boolean} useSpecial - whether special characters are included
- * @returns 
- */
 
 //  length, useLowerCase, useUpperCase, useNumeric, useSpecial
 function generatePassword() {
@@ -84,13 +72,16 @@ function generatePassword() {
 }
 
 /*
-Modal Test Start
+Modal Start
 */
 // Get the modal
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+// var btn = document.getElementById("myBtn");
+
+// Modal Trigger Button
+var btn = document.getElementById("generate");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
@@ -112,7 +103,7 @@ window.onclick = function(event) {
   }
 }
 /*
-Modal Test End
+Modal End
 */
 
 
