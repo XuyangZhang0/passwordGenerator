@@ -16,18 +16,37 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 
+  // automatically copy to clipboard
+  navigator.clipboard.writeText(passwordText.value);
+
+  /* Alert the copied text */
+  alert("Auto generated password copied the clipboard!");
+
 }
 
 function setCriteria() {
-length = Number(document.getElementById('length').value);
-console.log(length);
-useLowerCase= document.getElementById('useLowercase').checked;
-console.log(useLowerCase);
-useUpperCase= document.getElementById('useUppercase').checked;
-useSpecial= document.getElementById('useSpecial').checked;
-useNumeric= document.getElementById('useNumeric').checked;
-modal.style.display = "none";
-writePassword();
+  length = Number(document.getElementById('length').value);
+  console.log(length);
+  useLowerCase = document.getElementById('useLowercase').checked;
+  console.log(useLowerCase);
+  useUpperCase = document.getElementById('useUppercase').checked;
+  useSpecial = document.getElementById('useSpecial').checked;
+  useNumeric = document.getElementById('useNumeric').checked;
+  while (checkCriteria()) {
+    modal.style.display = "none";
+    writePassword();
+  }
+}
+
+function checkCriteria() {
+  if (length > 128 || length < 8) {
+    alert("Make sure you select the password length within range of 8-128!");
+    return false;
+  } else if (useLowerCase || useUpperCase || useNumeric || useSpecial) {
+    alert("Make sure you select at least one of the character set to generate password from.")
+    return false;
+  }
+  else return true;
 }
 
 // Add event listener to generate button, updated the user flow and no need for this listener
@@ -37,7 +56,7 @@ writePassword();
 confirmBtn.addEventListener("click", setCriteria);
 
 // Preventdefault form submit, to avoid refresh page
-document.getElementById("confirm").addEventListener("click", function(event){
+document.getElementById("confirm").addEventListener("click", function (event) {
   event.preventDefault()
 });
 
@@ -87,17 +106,17 @@ var btn = document.getElementById("generate");
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
-btn.onclick = function() {
+btn.onclick = function () {
   modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+span.onclick = function () {
   modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
