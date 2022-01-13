@@ -55,7 +55,10 @@ function writePassword() {
   navigator.clipboard.writeText(passwordText.value);
 
   /* Alert the copied text */
-  alert("Auto generated password copied the clipboard!");
+  
+  setTimeout(function(){
+    alert("Auto generated password copied the clipboard!");
+  },500);
 
 }
 // Linked to event listener for Confirm button, assigns the values via form, and run validation, then call writepassword
@@ -69,7 +72,6 @@ function setCriteria() {
   useNumeric = document.getElementById('useNumeric').checked;
 
   if(checkCriteria()){
-    // modal.style.display = "none";
     writePassword();
   }
 }
