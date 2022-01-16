@@ -3,6 +3,9 @@
 ## Description
 This is a simple utility that would allow users to randomly generate a password with length of 8-128 digits, from a selected pool of characters, including lower case letters, upper case letters, special characters, and numeric values.
 
+## Deployed GitHub Page
+[Password Generator](https://xuyangzhang0.github.io/passwordGenerator/)
+
 ## Demo
 
 ![User Flow](demo.gif)
